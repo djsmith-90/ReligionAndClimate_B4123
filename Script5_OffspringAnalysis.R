@@ -726,7 +726,7 @@ data_offspring %>%
   filter(!is.na(totalActions)) %>%
   summarise(n = n(), min = min(totalActions), max = max(totalActions), mean = mean(totalActions),
             sd = sd(totalActions), median = median(totalActions), per_25 = quantile(totalActions, 0.25),
-            per_75 = quantile(totalActions, 0.75)) 
+            per_75 = quantile(totalActions, 0.75), per_zero = (sum(totalActions == 0) / n) * 100) 
 
 sum(is.na(data_offspring$totalActions))
 round(sum(is.na(data_offspring$totalActions)) / nrow(data_offspring) * 100, 1)
@@ -746,7 +746,7 @@ data_offspring %>%
   filter(!is.na(totalActions)) %>%
   summarise(n = n(), min = min(totalActions), max = max(totalActions), mean = mean(totalActions),
             sd = sd(totalActions), median = median(totalActions), per_25 = quantile(totalActions, 0.25),
-            per_75 = quantile(totalActions, 0.75)) 
+            per_75 = quantile(totalActions, 0.75), per_zero = (sum(totalActions == 0) / n) * 100) 
 
 sum(is.na(data_offspring$totalActions[data_offspring$cca_combined == 1]))
 round(sum(is.na(data_offspring$totalActions[data_offspring$cca_combined == 1])) / 

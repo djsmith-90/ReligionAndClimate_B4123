@@ -719,7 +719,7 @@ data_mum %>%
   filter(!is.na(totalActions)) %>%
   summarise(n = n(), min = min(totalActions), max = max(totalActions), mean = mean(totalActions),
             sd = sd(totalActions), median = median(totalActions), per_25 = quantile(totalActions, 0.25),
-            per_75 = quantile(totalActions, 0.75)) 
+            per_75 = quantile(totalActions, 0.75), per_zero = (sum(totalActions == 0) / n) * 100) 
 
 sum(is.na(data_mum$totalActions))
 round(sum(is.na(data_mum$totalActions)) / nrow(data_mum) * 100, 1)
@@ -739,7 +739,7 @@ data_mum %>%
   filter(!is.na(totalActions)) %>%
   summarise(n = n(), min = min(totalActions), max = max(totalActions), mean = mean(totalActions),
             sd = sd(totalActions), median = median(totalActions), per_25 = quantile(totalActions, 0.25),
-            per_75 = quantile(totalActions, 0.75)) 
+            per_75 = quantile(totalActions, 0.75), per_zero = (sum(totalActions == 0) / n) * 100) 
 
 sum(is.na(data_mum$totalActions[data_mum$cca_combined == 1]))
 round(sum(is.na(data_mum$totalActions[data_mum$cca_combined == 1])) / 
